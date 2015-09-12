@@ -323,8 +323,8 @@ class Client(object):
 
                     if isinstance(request.body, types.StringTypes):
                         if msg is not None:
-                            conn.send(msg + to_bytestring(request.body),
-                                    chunked)
+                            conn.send(to_bytestring(msg)
+                                      + to_bytestring(request.body), chunked)
                         else:
                             conn.send(to_bytestring(request.body), chunked)
                     else:
